@@ -27,8 +27,8 @@ function ProductComponent({ product, onClick }: ProductProps) {
     <div className={style.product} onClick={onClick}>
       <Card>
         <Stack gap={10}>
-          <h1>{product.product_name}</h1>
-          <Property propName={"Barcode"} propValue={product.barcode_number} />
+          <h1>{product.productName}</h1>
+          <Property propName={"Barcode"} propValue={product.barcodeNumber} />
           <Property propName={"Brand"} propValue={product.brand} />
           <Property propName={"Color"} propValue={product.color} />
           <Property propName={"Description"} propValue={product.description} />

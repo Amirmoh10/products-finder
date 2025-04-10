@@ -1,18 +1,18 @@
 type Store = {
-  store_name: string;
-  store_price: string;
-  product_url: string;
-  currency_code: string;
-  currency_symbol: string;
+  storeName: string;
+  storePrice: string;
+  productUrl: string;
+  currencyCode: string;
+  currencySymbol: string;
 };
 
 export type Product = {
-  barcode_number: string;
-  barcode_type: string;
-  barcode_formats: string;
+  barcodeNumber: string;
+  barcodeType: string;
+  barcodeFormats: string;
   asin: string;
   model: string;
-  product_name: string;
+  productName: string;
   category: string;
   brand: string;
   color: string;

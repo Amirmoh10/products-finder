@@ -11,20 +11,18 @@ type StoresModalProps = {
 function StoresModal({ product, onClose }: StoresModalProps) {
   return (
     <Modal
-      title={`${product.product_name}: Stores availability`}
+      title={`${product.productName}: Stores availability`}
       onClose={onClose}
     >
       {product.stores.length > 0
-        ? product.stores.map(
-            ({ store_name, store_price, product_url }, index) => (
-              <div className={style.store} key={index}>
-                <a href={product_url} target="_blank">
-                  {store_name}
-                </a>
-                : <span>${store_price}</span>
-              </div>
-            )
-          )
+        ? product.stores.map(({ storeName, storePrice, productUrl }, index) => (
+            <div className={style.store} key={index}>
+              <a href={productUrl} target="_blank">
+                {storeName}
+              </a>
+              <span>${storePrice}</span>
+            </div>
+          ))
         : "No stores availability found."}
     </Modal>
   );
