@@ -6,7 +6,7 @@ import { eq, or, and, ilike } from "drizzle-orm";
 
 const app = new Hono();
 
-app.get("/api/products", async (c) => {
+app.get("/", async (c) => {
   const query = c.req.query();
   const queryBuilder = db.select().from(product);
 
