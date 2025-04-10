@@ -4,11 +4,9 @@ import { db } from "../src/db";
 import { product } from "../src/db/schema";
 import { eq, or, and, ilike } from "drizzle-orm";
 
-export const runtime = "nodejs";
+const app = new Hono().basePath("/api");
 
-const app = new Hono();
-
-app.get("/api/products", async (c) => {
+app.get("/products", async (c) => {
   const query = c.req.query();
   const queryBuilder = db.select().from(product);
 
@@ -46,5 +44,10 @@ app.get("/api/products", async (c) => {
   }
 });
 
-export const GET = handle(app);
-export const POST = handle(app);
+const handler = handle(app);
+
+export const GET = handler;
+export const POST = handler;
+export const PATCH = handler;
+export const PUT = handler;
+export const OPTIONS = handler;
