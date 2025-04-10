@@ -64,10 +64,10 @@ function Home() {
     try {
       const response = await fetch(`/api/products?${params.toString()}`);
       const data = await response.json();
-      console.log({ data });
+
       dispatch({
         type: ActionKind.PRODUCTS_FETCHED,
-        payload: data,
+        payload: data.products,
       });
     } catch (e) {
       if (e instanceof Error) {

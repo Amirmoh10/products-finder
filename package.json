@@ -7,7 +7,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "tsx src/api/index.ts"
+    "server": "tsx api/products.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.0",
