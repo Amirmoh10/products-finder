@@ -1,54 +1,92 @@
-# React + TypeScript + Vite
+# Product Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for searching and comparing products across different online stores, built with React 19, TypeScript, and PostgreSQL.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Product Finder allows users to search for products by name, barcode, or specifications and view availability across different stores with pricing information. The application helps consumers make informed purchasing decisions by comparing prices and availability in one convenient interface.
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19, TypeScript, CSS Modules
+- **Backend**: Hono API server
+- **Database**: PostgreSQL with Drizzle ORM
+- **Build Tools**: Vite, TSX
+- **Deployment**: Vercel-ready configuration
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Features
+
+- **Product Search**: Search products by keyword, barcode, brand, or manufacturer
+- **Advanced Filtering**: Filter results with multiple criteria simultaneously
+- **Store Comparison**: View product availability and pricing across multiple retailers
+- **Responsive Design**: Clean card-based interface that works on all device sizes
+- **Type Safety**: Full TypeScript implementation for robust code quality
+- **Database Migration**: Schema version control with Drizzle ORM
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- PostgreSQL database
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Create a `.env` file with your database connection:
+   ```
+   DATABASE_URL="postgresql://username:password@localhost:5432/product_finder"
+   DIRECT_URL="postgresql://username:password@localhost:5432/product_finder"
+   ```
+
+### Development
+
+Run the development server:
+
+```
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+In a separate terminal, start the API server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm run server
+```
+
+### Database Management
+
+Generate migrations after schema changes:
+
+```
+npm run drizzle-generate
+```
+
+Apply migrations:
+
+```
+npm run migrate
+```
+
+Seed the database (if available):
+
+```
+npm run seed
+```
+
+## Project Structure
+
+- `src/` - Frontend application code
+  - `components/` - React components
+  - `db/` - Database connection and schema
+  - `types.ts` - TypeScript type definitions
+- `api/` - Hono API endpoints
+- `drizzle/` - Database migration files
+
+## Future Enhancements
+
+- User authentication
+- More data record seeding
