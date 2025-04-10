@@ -18,7 +18,7 @@ function AdvancedSearchModal({ onSubmit, onClose }: AdvancedSearchModalProps) {
     productName: "",
     manufacturer: "",
   });
-  console.log({ onSubmit });
+
   const isFilterEmpty =
     Object.values(filter).filter((value) => value.length > 0).length === 0;
 
@@ -28,7 +28,7 @@ function AdvancedSearchModal({ onSubmit, onClose }: AdvancedSearchModalProps) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // onSubmit(filter);
+    onSubmit(filter);
     onClose();
   }
 
