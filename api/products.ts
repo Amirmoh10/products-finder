@@ -1,14 +1,17 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
 import { db } from "../src/db";
-import { product } from "../src/db/schema";
+import { product, store } from "../src/db/schema";
 import { eq, or, and, ilike } from "drizzle-orm";
 
 const app = new Hono().basePath("/api");
 
 app.get("/products", async (c) => {
   const query = c.req.query();
-  const queryBuilder = db.select().from(product);
+  const queryBuilder = db
+    .select()
+    .from(product)
+    .innerJoin(store, eq(product.id, store.productId));
 
   const conditions = [];
 
