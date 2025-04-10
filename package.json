@@ -7,7 +7,10 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "tsx api/products.ts"
+    "server": "tsx api/products.ts",
+    "seed": "tsx src/db/seed.ts",
+    "drizzle-generate": "npx drizzle-kit generate",
+    "migrate": "tsx src/db/migrate.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.0",
