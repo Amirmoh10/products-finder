@@ -40,7 +40,27 @@ app.get("/products", async (c) => {
   try {
     const result = await queryBuilder.where(and(...conditions));
 
-    return c.json(result);
+    // Group products and collect their stores
+    const productsMap = new Map();
+
+    result.forEach((item) => {
+      const productId = item.Product.id;
+
+      if (!productsMap.has(productId)) {
+        productsMap.set(productId, {
+          ...item.Product,
+          stores: [],
+        });
+      }
+
+      productsMap.get(productId).stores.push(item.Store);
+    });
+
+    const data = {
+      products: Array.from(productsMap.values()),
+    };
+
+    return c.json(data);
   } catch (error) {
     console.error(error);
     return c.json({ error: "Failed to fetch data" }, 500);
