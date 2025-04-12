@@ -1,5 +1,5 @@
 import { pgTable, text, timestamp, foreignKey } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
+import { InferInsertModel, InferSelectModel, sql } from "drizzle-orm";
 
 export const product = pgTable("Product", {
   id: text().primaryKey().notNull(),
@@ -42,3 +42,6 @@ export const store = pgTable(
       .onDelete("restrict"),
   ]
 );
+
+export type Product = InferSelectModel<typeof product>;
+export type Store = InferInsertModel<typeof store>;

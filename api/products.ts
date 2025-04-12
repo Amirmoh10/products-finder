@@ -3,8 +3,10 @@ import { handle } from "hono/vercel";
 import { db } from "../src/db";
 import { product, store } from "../src/db/schema";
 import { eq, or, and, ilike } from "drizzle-orm";
+import { logger } from "hono/logger";
 
 const app = new Hono().basePath("/api");
+app.use(logger());
 
 app.get("/products", async (c) => {
   const query = c.req.query();
@@ -19,7 +21,8 @@ app.get("/products", async (c) => {
     conditions.push(
       or(
         ilike(product.productName, `%${query.search}%`),
-        ilike(product.description, `%${query.search}%`),
+        ilike(product.category, `%${query.search}%`),
+        ilike(product.manufacturer, `%${query.search}%`),
         ilike(product.brand, `%${query.search}%`)
       )
     );

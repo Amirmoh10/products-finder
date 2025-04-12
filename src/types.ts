@@ -1,26 +1,4 @@
-type Store = {
-  storeName: string;
-  storePrice: string;
-  productUrl: string;
-  currencyCode: string;
-  currencySymbol: string;
-};
-
-export type Product = {
-  barcodeNumber: string;
-  barcodeType: string;
-  barcodeFormats: string;
-  asin: string;
-  model: string;
-  productName: string;
-  category: string;
-  brand: string;
-  color: string;
-  description: string;
-  features: string[];
-  images: string[];
-  stores: Store[];
-};
+import { Product } from "./db/schema";
 
 export enum ActionKind {
   LOADING_SET = "LOADING_SET",
