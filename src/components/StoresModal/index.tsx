@@ -1,10 +1,15 @@
-import { Product } from "../../types";
 import Modal from "../Modal";
+import { Product } from "../../db/schema";
+import { Store } from "../../db/schema";
 
 import style from "./StoresModal.module.css";
 
+type ProductWithStores = Product & {
+  stores: Store[];
+};
+
 type StoresModalProps = {
-  product: Product;
+  product: ProductWithStores;
   onClose: () => void;
 };
 
