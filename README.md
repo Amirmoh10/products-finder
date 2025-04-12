@@ -85,8 +85,3 @@ npm run seed
   - `types.ts` - TypeScript type definitions
 - `api/` - Hono API endpoints
 - `drizzle/` - Database migration files
-
-## Future Enhancements
-
-- User authentication
-- More data record seeding
