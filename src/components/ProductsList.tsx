@@ -1,7 +1,7 @@
 import Card from "./Card";
-import type { Product } from "../types";
 import ProductComponent from "./ProductComponent";
 import { REQUEST } from "../constants";
+import { Product } from "../db/schema";
 
 type ProductsListProps = {
   request: string;

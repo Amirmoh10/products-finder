@@ -1,11 +1,11 @@
 import Card from "../Card";
 import Stack from "../Stack";
-import { Product } from "../../types";
 import style from "./Product.module.css";
+import { Product } from "../../db/schema";
 
 type PropertyProps = {
   propName: string;
-  propValue: string;
+  propValue: string | null;
 };
 
 type ProductProps = {
