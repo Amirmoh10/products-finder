@@ -840,6 +840,7 @@ const seed = async () => {
   // Insert seed data
   await db.insert(product).values(productSeedData);
   await db.insert(store).values(storesSeedData);
+  process.exit();
 };
 
 await seed();
